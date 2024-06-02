@@ -33,11 +33,11 @@ class MetricsServlet < WEBrick::HTTPServlet::AbstractServlet
     response.body = <<~BODY
       # HELP shelly_cloud_device Current Power
       # TYPE shelly_cloud_device gauge
-      "shelly_cloud_device{device_id=\"#{DEVICE_ID}\"} #{metrics[:power_watts]}"
+      shelly_cloud_device{device_id=\"#{DEVICE_ID}\"} #{metrics[:power_watts]}
 
       # HELP shelly_cloud_device Current Wifi rssi
       # TYPE shelly_cloud_device gauge
-      "shelly_cloud_device{device_id=\"#{DEVICE_ID}\"} #{metrics[:wifi_rssi]}"
+      shelly_cloud_device{device_id=\"#{DEVICE_ID}\"} #{metrics[:wifi_rssi]}
     BODY
   end
 end
